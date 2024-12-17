@@ -1,0 +1,173 @@
+@import "./reset";
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  //   line-height: 120%;
+  //   font-size: 16px;
+  //   font-family: "Inter";
+  //   color: #21272a;
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes rotateWhell {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes showCar {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(82%);
+  }
+}
+
+@keyframes transformElems {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-140vw);
+  }
+}
+@keyframes rotatePlane {
+  from {
+    transform: rotate(0deg) translateY(0);
+  }
+  to {
+    transform: rotate(-13deg) translateY(-80vh);
+  }
+}
+
+.whell {
+  position: absolute;
+  left: 0;
+  bottom: 1%;
+  width: 4vw;
+  height: 4vw;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  &[data-whell="1"] {
+    left: 86.8%;
+  }
+
+  &[data-whell="2"] {
+    left: 63.4%;
+  }
+
+  &[data-whell="3"] {
+    left: 23%;
+  }
+
+  &[data-whell="4"] {
+    left: 9.5%;
+  }
+}
+
+body.loaded {
+  .interactive__car {
+    animation: showCar 2s ease-in-out forwards;
+  }
+  .whell {
+    animation: rotateWhell 2s ease-in-out forwards;
+  }
+
+  .interactive__car-inner,
+  .interactive__bg {
+    animation: transformElems 3s ease-in-out forwards 3s;
+  }
+
+  .interactive__plane {
+    animation: rotatePlane 3s ease-in-out forwards 3s;
+  }
+}
+
+.header {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.elems-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.interactive__car-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.interactive__car {
+  transform: translateX(-100%);
+  position: absolute;
+  left: 0;
+  bottom: 16%;
+  width: 45vw;
+  height: 10.5vw;
+  .interactive__car-el {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top center;
+  }
+}
+
+.interactive__plane {
+  z-index: 2;
+  position: absolute;
+  right: 2%;
+  top: 34%;
+  width: 53vw;
+  height: 15vw;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.interactive__bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: max-content;
+  img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+    display: block;
+    margin: 0;
+  }
+}
