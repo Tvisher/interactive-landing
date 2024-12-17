@@ -87,19 +87,19 @@ body {
 
 body.loaded {
   .interactive__car {
-    animation: showCar 2s ease-in-out forwards;
+    animation: showCar 3s ease-in-out forwards;
   }
   .whell {
-    animation: rotateWhell 2s ease-in-out forwards;
+    animation: rotateWhell 3s ease-in-out forwards;
   }
 
   .interactive__car-inner,
   .interactive__bg {
-    animation: transformElems 4s ease-in-out forwards 3s;
+    animation: transformElems 4s ease-in-out forwards 3.5s;
   }
 
   .interactive__plane {
-    animation: rotatePlane 4s ease-in-out forwards 3s;
+    animation: rotatePlane 4s ease-in-out forwards 3.5s;
   }
 }
 
