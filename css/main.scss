@@ -1,12 +1,38 @@
 @import "./reset";
 
+@font-face {
+  font-family: "normalidad";
+  src: url("../fonts/normalidad-light-var.woff2") format("woff2");
+  font-weight: 300; /* Нормальный вес */
+  font-style: normal; /* Обычный стиль */
+  font-display: swap; /* Оптимизация загрузки */
+}
+
+@font-face {
+  font-family: "normalidad";
+  src: url("../fonts/normalidad-regular-var.woff2") format("woff2");
+  font-weight: 400; /* Нормальный вес */
+  font-style: normal; /* Обычный стиль */
+  font-display: swap; /* Оптимизация загрузки */
+}
+
+@font-face {
+  font-family: "normalidad";
+  src: url("../fonts/normalidad-medium-var.woff2") format("woff2");
+  font-weight: 500; /* Нормальный вес */
+  font-style: normal; /* Обычный стиль */
+  font-display: swap; /* Оптимизация загрузки */
+}
+
+$index: calc(1vw + 1vh);
+
 html {
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   //   line-height: 120%;
   //   font-size: 16px;
-  //   font-family: "Inter";
+  font-family: "normalidad";
   //   color: #21272a;
   height: 100%;
 }
@@ -19,6 +45,15 @@ body {
   background-color: #fff;
   display: flex;
   flex-direction: column;
+}
+
+@keyframes fromOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes rotateWhell {
@@ -85,6 +120,68 @@ body {
   }
 }
 
+.logo {
+  position: absolute;
+  left: 6%;
+  top: 4%;
+  z-index: 2;
+  width: 15%;
+  height: 4%;
+  z-index: 5;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.header-content-inner {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #528fe9 0%, rgba(255, 255, 255, 0) 100%);
+  }
+}
+
+.header-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+.header-content__title {
+  position: absolute;
+  left: 6%;
+  font-size: 5.6vw;
+  line-height: 90%;
+  color: #fff;
+  top: 23%;
+  font-weight: 500;
+}
+
+.header-content__descr {
+  position: absolute;
+  left: 6%;
+  font-size: 2vw;
+  line-height: 120%;
+  color: #fff;
+  top: 55%;
+  font-weight: 400;
+}
+
 body.loaded {
   .interactive__car {
     animation: showCar 3s ease-in-out forwards;
@@ -93,13 +190,18 @@ body.loaded {
     animation: rotateWhell 3s ease-in-out forwards;
   }
 
+  .header-content-inner {
+    animation: fromOpacity 1s ease-in-out forwards 3s;
+  }
+
   .interactive__car-inner,
-  .interactive__bg {
-    animation: transformElems 4s ease-in-out forwards 3.5s;
+  .interactive__bg,
+  .header-content {
+    animation: transformElems 4s ease-in-out forwards 4.5s;
   }
 
   .interactive__plane {
-    animation: rotatePlane 4s ease-in-out forwards 3.5s;
+    animation: rotatePlane 4s ease-in-out forwards 4.5s;
   }
 }
 
@@ -130,7 +232,7 @@ body.loaded {
   transform: translateX(-100%);
   position: absolute;
   left: 0;
-  bottom: 16%;
+  bottom: 18%;
   width: 45vw;
   height: 10.5vw;
   .interactive__car-el {
@@ -145,7 +247,7 @@ body.loaded {
   z-index: 2;
   position: absolute;
   right: 2%;
-  top: 34%;
+  bottom: 39%;
   width: 53vw;
   height: 15vw;
   img {
@@ -163,6 +265,7 @@ body.loaded {
   height: 100%;
   width: max-content;
   img {
+    transform: translateX(-9vw);
     width: auto;
     height: 100%;
     object-fit: cover;
