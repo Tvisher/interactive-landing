@@ -44,7 +44,7 @@ body {
     transform: translateX(0%);
   }
   to {
-    transform: translateX(-140vw);
+    transform: translateX(-150vw);
   }
 }
 @keyframes rotatePlane {
@@ -95,11 +95,11 @@ body.loaded {
 
   .interactive__car-inner,
   .interactive__bg {
-    animation: transformElems 3s ease-in-out forwards 3s;
+    animation: transformElems 4s ease-in-out forwards 3s;
   }
 
   .interactive__plane {
-    animation: rotatePlane 3s ease-in-out forwards 3s;
+    animation: rotatePlane 4s ease-in-out forwards 3s;
   }
 }
 
