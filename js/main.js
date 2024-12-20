@@ -60,15 +60,16 @@ window.addEventListener('load', (e) => {
         bodyEl.classList.add('ready');
     }, 3000)
 })
-
+let animDo = false;
 window.addEventListener('scroll', function () {
+    if (!bodyEl.classList.contains('ready') || animDo) return;
+    animDo = true
     bodyEl.classList.add('scrolled');
-
     setTimeout(() => {
         bodyEl.classList.add('ready-next');
         smoothScroll(secondSection, 2000);
     }, 2500)
-}, { once: true });
+});
 
 
 const swiper = new Swiper(".mySwiper", {
