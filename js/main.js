@@ -72,10 +72,16 @@ window.addEventListener('scroll', function () {
 
 
 const swiper = new Swiper(".mySwiper", {
-    spaceBetween: 20,
-    slidesPerView: 6,
+    spaceBetween: 10,
+    slidesPerView: 4,
     freeMode: true,
     watchSlidesProgress: true,
+    breakpoints: {
+        576: {
+            spaceBetween: 20,
+            slidesPerView: 6,
+        }
+    }
 });
 const swiper2 = new Swiper(".mySwiper2", {
     spaceBetween: 10,
@@ -83,3 +89,21 @@ const swiper2 = new Swiper(".mySwiper2", {
         swiper: swiper,
     },
 });
+
+const ckeckRatio = () => {
+    const ratioDesctop = window.innerWidth > window.innerHeight;
+    if (ratioDesctop) {
+        bodyEl.classList.add('desctop');
+        bodyEl.classList.remove('mobile');
+    } else {
+        bodyEl.classList.add('mobile');
+        bodyEl.classList.remove('desctop');
+    }
+}
+ckeckRatio();
+window.addEventListener('resize', ckeckRatio);
+
+
+document.querySelector('#totopbtn').addEventListener('click', (e) => {
+    smoothScroll(bodyEl, 2000)
+})
