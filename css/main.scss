@@ -45,7 +45,7 @@ body {
   overflow: hidden;
   height: 100dvh;
   &.ready {
-    height: calc(100dvh + 1px);
+    height: calc(100dvh + 5px);
   }
 }
 
